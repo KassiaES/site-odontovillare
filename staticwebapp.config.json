@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "serve": "/index.html"
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 404
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/style.css", "/*.{js,json,xml,ico,png,jpg,jpeg,gif,svg,woff,woff2,eot,ttf,otf}"]
+  },
+  "mimeTypes": {
+    ".css": "text/css",
+    ".html": "text/html",
+    ".js": "application/javascript"
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
+  }
+}
