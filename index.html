@@ -2,482 +2,262 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Odonto Villare | Atendimento Odontológico de Qualidade</title>
-
-  <meta name="description" content="A Odonto Villare cresceu com o bairro. 26 anos de atuação servindo nossos pacientes com acolhimento, atenção e Odontologia de qualidade acessível." />
-
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odonto Villare | Clínica Odontológica</title>
+  <meta name="description" content="Odonto Villare: atendimento odontológico humanizado, acessível e completo para cuidar do seu sorriso." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="site-header" id="topo">
+    <div class="container nav">
+      <a class="brand" href="#topo" aria-label="Página inicial Odonto Villare">
+        <img src="img/logo.avif" alt="Logo Odonto Villare" class="brand-logo" />
+        <span>Odonto Villare</span>
+      </a>
 
-<header class="header">
-  <div class="container nav">
-    <div class="logo">
-      <img src="img/logo.avif" alt="Odonto Villare" class="logo-img">
-      <span class="logo-text">Odonto Villare</span>
-    </div>
-    <nav class="nav-menu">
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#numeros">Números</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <a href="https://wa.me/5511938066164" class="btn btn-header">
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-      </svg>
-      Fale Conosco
-    </a>
-  </div>
-</header>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-<section class="hero">
-  <div class="hero-bg">
-    <img src="img/hero.avif" alt="Clínica Odonto Villare - Atendimento Odontológico de Qualidade" class="hero-image">
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="container hero-content">
-    <div class="hero-text fade-in-up">
-      <h1>Atendimento Odontológico<br><span class="highlight">De Qualidade</span></h1>
-      <p>Seu sorriso é o nosso principal objetivo</p>
-      <div class="hero-buttons">
-        <a href="https://wa.me/5511938066164" class="btn btn-primary btn-large">
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-          </svg>
-          Agendar Consulta
-        </a>
-        <a href="#sobre" class="btn btn-secondary btn-large">
-          Conheça Nossa História
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+      <nav class="nav-links" aria-label="Menu principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#contato">Contato</a>
+      </nav>
 
-<section class="sobre" id="sobre">
-  <div class="container">
-    <div class="sobre-grid">
-      <div class="sobre-content fade-in">
-        <div class="section-tag">Sobre Nós</div>
-        <h2>Sobre a Odontologia no Nosso Bairro</h2>
-        
-        <div class="sobre-text">
-          <p class="lead">
-            <strong>A Odonto Villare cresceu com o bairro.</strong> Acompanhamos o desenvolvimento da região e não só isso, seguimos juntos nessa caminhada.
-          </p>
-          
-          <p>
-            São muitos anos de atuação servindo os nossos pacientes com acolhimento e atenção, entregando uma Odontologia de qualidade de forma acessível para nossa comunidade.
-          </p>
-          
-          <p>
-            Hoje estamos em duas unidades na região e temos a visão de evolução e desenvolvimento para entregarmos o melhor para nossos pacientes.
-          </p>
-
-          <div class="smile-message">
-            <h3>✨ Sorria com confiança e sem preocupações! ✨</h3>
-            <p>
-              Na Odonto Villare, cuidamos do seu sorriso com carinho, tecnologia de ponta e uma equipe dedicada ao seu bem-estar. Seja para uma limpeza, um clareamento, ou um tratamento mais complexo, estamos prontos para te ajudar a alcançar o sorriso dos seus sonhos.
-            </p>
-            <p>
-              Não adie mais o cuidado com a sua saúde bucal! Agende agora sua consulta e descubra como é fácil e acessível ter um sorriso saudável e radiante.
-            </p>
-            <p class="cta-message">
-              <strong>👉 Venha para a Odonto Villare e transforme seu sorriso! 🦷💙</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="sobre-images fade-in-right">
-        <div class="image-card">
-          <img src="img/hero.avif" alt="Consultório odontológico moderno" class="sobre-img">
-        </div>
-        <div class="image-card offset">
-          <img src="img/odontologia_estetica.avif" alt="Tratamento de clareamento dental" class="sobre-img">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="servicos" id="servicos">
-  <div class="container">
-    <div class="section-header text-center fade-in">
-      <div class="section-tag">Nossos Serviços</div>
-      <h2>Especialidades que Preenchem<br><span class="highlight">Toda Tela do Cuidado</span></h2>
-      <p>Oferecemos uma ampla gama de serviços odontológicos para cuidar de toda sua família</p>
-    </div>
-
-    <div class="servicos-grid">
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/ortodontia.avif" alt="Ortodontia">
-          <div class="servico-overlay">
-            <h3>Ortodontia</h3>
-            <p>Alinhamento perfeito para seu sorriso</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/implante.avif" alt="Implante Dentário">
-          <div class="servico-overlay">
-            <h3>Implante Dentário</h3>
-            <p>Restauração natural e duradoura</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/odontologia_estetica.avif" alt="Odontologia Estética">
-          <div class="servico-overlay">
-            <h3>Odontologia Estética</h3>
-            <p>Beleza e harmonia para seu sorriso</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/endodontia.avif" alt="Endodontia">
-          <div class="servico-overlay">
-            <h3>Endodontia</h3>
-            <p>Tratamento de canal especializado</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/periodontia.avif" alt="Periodontia">
-          <div class="servico-overlay">
-            <h3>Periodontia</h3>
-            <p>Saúde da gengiva e estruturas</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/protese.avif" alt="Prótese Dentária">
-          <div class="servico-overlay">
-            <h3>Prótese Dentária</h3>
-            <p>Função e estética restauradas</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/odontopediatria.avif" alt="Odontopediatria">
-          <div class="servico-overlay">
-            <h3>Odontopediatria</h3>
-            <p>Cuidado especial com os pequenos</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/clareamento.avif" alt="Clareamento Dental">
-          <div class="servico-overlay">
-            <h3>Clareamento Dental</h3>
-            <p>Dentes mais brancos e brilhantes</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="servico-card fade-in">
-        <div class="servico-image">
-          <img src="img/cirurgia.avif" alt="Cirurgia Oral">
-          <div class="servico-overlay">
-            <h3>Cirurgia Oral</h3>
-            <p>Procedimentos seguros e eficazes</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="servicos-cta text-center fade-in">
-      <a href="https://wa.me/5511938066164" class="btn btn-primary btn-large">
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-        </svg>
-        Agende Sua Consulta
+      <a class="btn btn-sm btn-whatsapp header-cta" href="https://wa.me/5511938066164?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+        Agendar consulta
       </a>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="numeros" id="numeros">
-  <div class="container">
-    <div class="section-header text-center fade-in">
-      <div class="section-tag">Nossos Números</div>
-      <h2>Resultado de Anos de<br><span class="highlight">Dedicação e Cuidado</span></h2>
-    </div>
-
-    <div class="numeros-grid">
-      <div class="numero-card fade-in">
-        <div class="numero-icon">
-          <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7V9H9V7L3 7V9H1V11H3V17C3 18.1 3.9 19 5 19H7C8.1 19 9 18.1 9 17V11H11V17C11 18.1 11.9 19 13 19H15C16.1 19 17 18.1 17 17V11H19V17C19 18.1 19.9 19 21 19C22.1 19 23 18.1 23 17V11H21V9Z"/>
-          </svg>
-        </div>
-        <div class="numero-value counter" data-target="13369">0</div>
-        <div class="numero-label">Pacientes Atendidos</div>
+  <main>
+    <section class="hero" aria-label="Apresentação da clínica">
+      <div class="hero-bg">
+        <img src="img/hero.avif" alt="Ambiente da clínica Odonto Villare" />
       </div>
+      <div class="hero-shape hero-shape-one"></div>
+      <div class="hero-shape hero-shape-two"></div>
 
-      <div class="numero-card fade-in">
-        <div class="numero-icon">
-          <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 6C13.93 6 15.5 7.57 15.5 9.5C15.5 11.43 13.93 13 12 13C10.07 13 8.5 11.43 8.5 9.5C8.5 7.57 10.07 6 12 6ZM19 19H5V18.3C5 16.6 8.5 15.9 12 15.9C15.5 15.9 19 16.6 19 18.3V19Z"/>
-          </svg>
-        </div>
-        <div class="numero-value counter" data-target="1580">0</div>
-        <div class="numero-label">Consultas / Mês</div>
-      </div>
-
-      <div class="numero-card fade-in">
-        <div class="numero-icon">
-          <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L2 7V10C2 16.5 6.5 22.1 12 23C17.5 22.1 22 16.5 22 10V7L12 2ZM10 17L5 12L6.41 10.59L10 14.18L17.59 6.58L19 8L10 17Z"/>
-          </svg>
-        </div>
-        <div class="numero-value counter" data-target="26">0</div>
-        <div class="numero-label">Anos de Experiência</div>
-      </div>
-
-      <div class="numero-card fade-in">
-        <div class="numero-icon">
-          <svg width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"/>
-          </svg>
-        </div>
-        <div class="numero-value counter" data-target="2">0</div>
-        <div class="numero-label">Unidades</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="depoimentos">
-  <div class="container">
-    <div class="section-header text-center fade-in">
-      <div class="section-tag">Depoimentos</div>
-      <h2>O Que Nossos Pacientes<br><span class="highlight">Falam de Nós</span></h2>
-    </div>
-
-    <div class="depoimento-destaque fade-in">
-      <div class="depoimento-content">
-        <div class="depoimento-text">
-          <p class="depoimento-quote">
-            "Quero deixar aqui o meu depoimento sobre essa clínica maravilhosa. Sou paciente há muito tempo e posso dizer que é uma das melhores clínicas da região. O atendimento é excepcional, desde a recepção até os profissionais. Todos muito atenciosos e preocupados com o bem-estar do paciente. Os tratamentos são realizados com muito cuidado e competência. Recomendo de olhos fechados!"
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Odontologia humanizada</p>
+          <h1>Cuidado completo para o seu sorriso, com acolhimento e tecnologia.</h1>
+          <p class="hero-text">
+            Há mais de 26 anos, a Odonto Villare acompanha famílias com atendimento próximo,
+            tratamentos odontológicos completos e foco no bem-estar de cada paciente.
           </p>
-        </div>
-        <div class="depoimento-autor">
-          <div class="autor-info">
-            <h4>Viviane Genari</h4>
-            <span>Paciente há mais de 5 anos</span>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5511938066164?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20consulta%20na%20Odonto%20Villare." target="_blank" rel="noopener">
+              Agendar pelo WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="#servicos">Conhecer tratamentos</a>
           </div>
-          <div class="estrelas">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-            </svg>
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-            </svg>
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-            </svg>
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-            </svg>
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-            </svg>
+
+          <div class="trust-row" aria-label="Indicadores da clínica">
+            <div><strong>26+</strong><span>anos de história</span></div>
+            <div><strong>13 mil+</strong><span>pacientes atendidos</span></div>
+            <div><strong>2</strong><span>unidades</span></div>
           </div>
         </div>
+
+        <div class="hero-card reveal delay-1">
+          <div class="hero-card-image">
+            <img src="img/odontologia_estetica.avif" alt="Tratamento odontológico estético" />
+          </div>
+          <div class="appointment-card">
+            <span class="status-dot"></span>
+            <div>
+              <strong>Atendimento com hora marcada</strong>
+              <p>Fale com a equipe e encontre o melhor horário para sua consulta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="sobre">
+      <div class="container two-columns">
+        <div class="section-copy reveal">
+          <p class="eyebrow">Sobre nós</p>
+          <h2>A Odonto Villare cresceu com o bairro.</h2>
+          <p>
+            Acompanhamos o desenvolvimento da região e seguimos juntos nessa caminhada,
+            oferecendo uma odontologia acessível, cuidadosa e pensada para a rotina real dos pacientes.
+          </p>
+          <p>
+            Nossa proposta é unir atendimento acolhedor, profissionais preparados e estrutura moderna
+            para entregar segurança desde a primeira avaliação até os tratamentos mais completos.
+          </p>
+          <a class="text-link" href="#contato">Ver unidades e contato →</a>
+        </div>
+
+        <div class="feature-panel reveal delay-1">
+          <div class="feature-item">
+            <span>01</span>
+            <div>
+              <h3>Atendimento humanizado</h3>
+              <p>Escuta, orientação clara e cuidado próximo em cada etapa do tratamento.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span>02</span>
+            <div>
+              <h3>Tratamentos completos</h3>
+              <p>Da prevenção aos procedimentos estéticos, cirúrgicos e reabilitadores.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span>03</span>
+            <div>
+              <h3>Qualidade acessível</h3>
+              <p>Planejamento de tratamento com transparência e foco na melhor solução.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Nossos serviços</p>
+          <h2>Especialidades para cuidar do seu sorriso em todas as fases.</h2>
+          <p>Uma landing page bonita precisa vender clareza. Aqui os tratamentos aparecem em cards fortes, com imagem, texto curto e chamada direta.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <img src="img/ortodontia.avif" alt="Ortodontia" />
+            <div><h3>Ortodontia</h3><p>Alinhamento dos dentes com planejamento e acompanhamento profissional.</p></div>
+          </article>
+          <article class="service-card reveal delay-1">
+            <img src="img/implante.avif" alt="Implante dentário" />
+            <div><h3>Implante dentário</h3><p>Reabilitação para devolver função, estética e segurança ao sorrir.</p></div>
+          </article>
+          <article class="service-card reveal delay-2">
+            <img src="img/odontologia_estetica.avif" alt="Odontologia estética" />
+            <div><h3>Odontologia estética</h3><p>Procedimentos para valorizar a harmonia e a beleza do sorriso.</p></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="img/endodontia.avif" alt="Endodontia" />
+            <div><h3>Endodontia</h3><p>Tratamento de canal com atenção ao conforto e à preservação do dente.</p></div>
+          </article>
+          <article class="service-card reveal delay-1">
+            <img src="img/periodontia.avif" alt="Periodontia" />
+            <div><h3>Periodontia</h3><p>Cuidado com gengiva, suporte dos dentes e saúde bucal de longo prazo.</p></div>
+          </article>
+          <article class="service-card reveal delay-2">
+            <img src="img/protese.avif" alt="Prótese dentária" />
+            <div><h3>Prótese dentária</h3><p>Soluções para restaurar mastigação, estética e qualidade de vida.</p></div>
+          </article>
+          <article class="service-card reveal">
+            <img src="img/odontopediatria.avif" alt="Odontopediatria" />
+            <div><h3>Odontopediatria</h3><p>Atendimento cuidadoso para crianças, com acolhimento e prevenção.</p></div>
+          </article>
+          <article class="service-card reveal delay-1">
+            <img src="img/clareamento.avif" alt="Clareamento dental" />
+            <div><h3>Clareamento dental</h3><p>Opções seguras para deixar o sorriso mais claro e iluminado.</p></div>
+          </article>
+          <article class="service-card reveal delay-2">
+            <img src="img/cirurgia.avif" alt="Cirurgia oral" />
+            <div><h3>Cirurgia oral</h3><p>Procedimentos realizados com planejamento, segurança e orientação.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats" id="diferenciais">
+      <div class="container stats-grid">
+        <div class="stats-copy reveal">
+          <p class="eyebrow light">Por que escolher</p>
+          <h2>Uma clínica feita para acolher, orientar e resolver.</h2>
+          <p>O visual desta seção segue um estilo mais premium, parecido com o que usamos no site da radiologia: fundo com gradiente, cards translúcidos e números em destaque.</p>
+        </div>
+
+        <div class="numbers reveal delay-1">
+          <div class="number-card"><strong class="counter" data-target="13369">0</strong><span>pacientes atendidos</span></div>
+          <div class="number-card"><strong class="counter" data-target="1580">0</strong><span>consultas por mês</span></div>
+          <div class="number-card"><strong class="counter" data-target="26">0</strong><span>anos de experiência</span></div>
+          <div class="number-card"><strong class="counter" data-target="2">0</strong><span>unidades</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonial">
+      <div class="container">
+        <div class="testimonial-card reveal">
+          <p class="quote-mark">“</p>
+          <p class="quote-text">
+            Atendimento acolhedor, equipe atenciosa e cuidado em cada detalhe. A experiência do paciente precisa aparecer no site com confiança, não com excesso de texto.
+          </p>
+          <div class="quote-footer">
+            <div>
+              <strong>Paciente Odonto Villare</strong>
+              <span>Depoimento em destaque</span>
+            </div>
+            <span class="stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato">
+      <div class="container contact-grid">
+        <div class="section-copy reveal">
+          <p class="eyebrow">Contato</p>
+          <h2>Fale com a Odonto Villare e agende sua avaliação.</h2>
+          <p>Use esta área para manter os dados oficiais da clínica. Ajustei o layout para ficar bonito mesmo com uma ou duas unidades.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://wa.me/5511938066164?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            <a class="btn btn-ghost dark" href="tel:+5511938066164">Ligar agora</a>
+          </div>
+        </div>
+
+        <div class="contact-card reveal delay-1">
+          <h3>Informações de atendimento</h3>
+          <ul>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/5511938066164" target="_blank" rel="noopener">(11) 93806-6164</a></li>
+            <li><strong>Horário:</strong> Segunda a sexta, das 8h às 18h</li>
+            <li><strong>Sábado:</strong> das 8h às 12h</li>
+            <li><strong>Unidades:</strong> consulte a unidade mais próxima pelo WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="img/logo.avif" alt="Logo Odonto Villare" class="footer-logo" />
+        <p>Cuidando do seu sorriso com qualidade, acolhimento e responsabilidade.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div>
+        <h4>Agendamento</h4>
+        <p>Prefere atendimento rápido? Chame pelo WhatsApp.</p>
+        <a class="footer-link" href="https://wa.me/5511938066164" target="_blank" rel="noopener">Abrir WhatsApp →</a>
       </div>
     </div>
-  </div>
-</section>
+    <div class="footer-bottom">© 2026 Odonto Villare. Todos os direitos reservados.</div>
+  </footer>
 
-<section class="contato" id="contato">
-  <div class="container">
-    <div class="section-header text-center fade-in">
-      <div class="section-tag">Contato</div>
-      <h2>Nossas Unidades para<br><span class="highlight">Melhor Atendê-lo</span></h2>
-    </div>
+  <a class="whatsapp-float" href="https://wa.me/5511938066164?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+    <span>✆</span>
+    <small>WhatsApp</small>
+  </a>
 
-    <div class="contato-grid">
-      <div class="unidade-card fade-in">
-        <div class="unidade-header">
-          <h3>Unidade Principal</h3>
-          <div class="unidade-badge">Principal</div>
-        </div>
-        
-        <div class="unidade-info">
-          <div class="info-item">
-            <div class="info-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5Z"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <strong>Endereço:</strong><br>
-              Rua das Flores, 123<br>
-              Centro, Blumenau - SC<br>
-              CEP: 89000-000
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <strong>Telefone:</strong><br>
-              <a href="tel:+554733331234">(47) 3333-1234</a><br>
-              <a href="https://wa.me/5547988776655">WhatsApp: (47) 98877-6655</a>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2L2 7V10C2 16.5 6.5 22.1 12 23C17.5 22.1 22 16.5 22 10V7L12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5Z"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <strong>Horários:</strong><br>
-              Segunda a Sexta: 8h às 18h<br>
-              Sábado: 8h às 12h<br>
-              Domingo: Fechado
-            </div>
-          </div>
-        </div>
-
-        <a href="https://wa.me/5547988776655" class="btn btn-primary btn-full">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-          </svg>
-          Agendar na Unidade Principal
-        </a>
-      </div>
-
-      <div class="unidade-card fade-in">
-        <div class="unidade-header">
-          <h3>Unidade Filial</h3>
-          <div class="unidade-badge filial">Filial</div>
-        </div>
-        
-        <div class="unidade-info">
-          <div class="info-item">
-            <div class="info-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5Z"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <strong>Endereço:</strong><br>
-              Avenida Brasil, 456<br>
-              Itoupava Norte, Blumenau - SC<br>
-              CEP: 89000-001
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <strong>Telefone:</strong><br>
-              <a href="tel:+554733335678">(47) 3333-5678</a><br>
-              <a href="https://wa.me/5511938066164">WhatsApp: (11) 93806-6164</a>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2L2 7V10C2 16.5 6.5 22.1 12 23C17.5 22.1 22 16.5 22 10V7L12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5Z"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <strong>Horários:</strong><br>
-              Segunda a Sexta: 8h às 18h<br>
-              Sábado: 8h às 12h<br>
-              Domingo: Fechado
-            </div>
-          </div>
-        </div>
-
-        <a href="https://wa.me/5511938066164" class="btn btn-primary btn-full">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-          </svg>
-          Agendar na Unidade Filial
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <img src="img/logo.avif" alt="Odonto Villare" class="footer-logo">
-        <p>Cuidando do seu sorriso há mais de 26 anos com qualidade, tecnologia e atendimento humanizado.</p>
-      </div>
-      
-      <div class="footer-info">
-        <h4>Contato</h4>
-        <p>
-          <strong>Unidade Principal:</strong><br>
-          <a href="tel:+554733331234">(47) 3333-1234</a><br>
-          <strong>Unidade Filial:</strong><br>
-          <a href="tel:+554733335678">(47) 3333-5678</a>
-        </p>
-      </div>
-      
-      <div class="footer-horarios">
-        <h4>Horários</h4>
-        <p>
-          Segunda a Sexta: 8h às 18h<br>
-          Sábado: 8h às 12h<br>
-          Domingo: Fechado
-        </p>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Odonto Villare. Todos os direitos reservados.</p>
-    </div>
-  </div>
-</footer>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/5511938066164" class="whatsapp-float" id="whatsappFloat">
-  <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-  </svg>
-</a>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

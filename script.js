@@ -1,200 +1,77 @@
-// Animações e interações modernas para o site
-document.addEventListener('DOMContentLoaded', function() {
-  
-  // Intersection Observer para animações
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.site-header');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  const updateHeader = () => {
+    header.classList.toggle('scrolled', window.scrollY > 24);
   };
 
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (event) => {
+      const id = anchor.getAttribute('href');
+      const target = id && document.querySelector(id);
+      if (!target) return;
+      event.preventDefault();
+      const offset = header ? header.offsetHeight + 10 : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
 
-  // Observar elementos com fade-in
-  document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-  });
+  revealElements.forEach((element) => revealObserver.observe(element));
 
-  // Counter animation
   const counters = document.querySelectorAll('.counter');
-  
   const animateCounter = (counter) => {
-    const target = parseInt(counter.getAttribute('data-target'));
-    const increment = target / 100;
-    let current = 0;
-    
-    const updateCounter = () => {
-      if (current < target) {
-        current += increment;
-        counter.textContent = Math.floor(current);
-        setTimeout(updateCounter, 20);
-      } else {
-        counter.textContent = target.toLocaleString();
-      }
+    const target = Number(counter.dataset.target || 0);
+    const duration = 1500;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      counter.textContent = Math.floor(target * eased).toLocaleString('pt-BR');
+      if (progress < 1) requestAnimationFrame(tick);
     };
-    
-    updateCounter();
+
+    requestAnimationFrame(tick);
   };
 
-  // Observer para números
-  const counterObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-        entry.target.classList.add('counted');
-        animateCounter(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  counters.forEach(counter => {
-    counterObserver.observe(counter);
-  });
-
-  // Scroll suave para links âncora
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const headerHeight = 80;
-        const targetPosition = target.offsetTop - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // Header scroll effect
-  const header = document.querySelector('.header');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-      header.style.background = 'rgba(255, 255, 255, 0.98)';
-      header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-      header.style.background = 'rgba(255, 255, 255, 0.95)';
-      header.style.boxShadow = 'none';
-    }
-
-    lastScroll = currentScroll;
-  });
-
-  // WhatsApp float animation on scroll
-  const whatsappFloat = document.querySelector('.whatsapp-float');
-  if (whatsappFloat) {
-    let scrollTimeout;
-
-    window.addEventListener('scroll', () => {
-      whatsappFloat.style.transform = 'scale(0.9)';
-      
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        whatsappFloat.style.transform = 'scale(1)';
-      }, 150);
-    });
-  }
-
-  // Parallax effect para hero
-  const hero = document.querySelector('.hero');
-  const heroImage = document.querySelector('.hero-image');
-  
-  if (hero && heroImage) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const heroHeight = hero.offsetHeight;
-      
-      if (scrolled < heroHeight) {
-        const speed = scrolled * 0.5;
-        heroImage.style.transform = `translateY(${speed}px)`;
-      }
-    });
-  }
-
-  // Hover effects para cards de serviço
-  const servicoCards = document.querySelectorAll('.servico-card');
-  
-  servicoCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-12px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
-    });
-  });
-
-  // Lazy loading para imagens
-  const images = document.querySelectorAll('img[src$=".avif"]');
-  
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const img = entry.target;
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.5s ease';
-        
-        img.onload = () => {
-          img.style.opacity = '1';
-        };
-        
-        observer.unobserve(img);
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
       }
     });
-  });
+  }, { threshold: 0.5 });
 
-  images.forEach(img => {
-    imageObserver.observe(img);
-  });
-
-  // Smooth hover effect nos botões
-  const buttons = document.querySelectorAll('.btn');
-  
-  buttons.forEach(button => {
-    button.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-2px)';
-    });
-    
-    button.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0)';
-    });
-  });
-
-  // Performance: Debounced scroll handler
-  let ticking = false;
-  
-  function updateOnScroll() {
-    // Scroll-based animations here
-    ticking = false;
-  }
-  
-  function requestTick() {
-    if (!ticking) {
-      requestAnimationFrame(updateOnScroll);
-      ticking = true;
-    }
-  }
-  
-  window.addEventListener('scroll', requestTick);
-
-  // Acessibilidade: Focus management
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-      document.body.classList.add('keyboard-navigation');
-    }
-  });
-  
-  document.addEventListener('mousedown', () => {
-    document.body.classList.remove('keyboard-navigation');
-  });
+  counters.forEach((counter) => counterObserver.observe(counter));
 });
