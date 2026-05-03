@@ -1,0 +1,2 @@
+# Forçar rebuild
+Timestamp: 2026-05-03 $(Get-Date)
