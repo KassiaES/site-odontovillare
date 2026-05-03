@@ -1,0 +1,103 @@
+{
+  "name": "Odonto Villare - Clínica Odontológica",
+  "short_name": "Odonto Villare",
+  "description": "Clínica odontológica especializada em tratamentos dentários com tecnologia avançada e atendimento humanizado",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0EA5E9",
+  "background_color": "#FFFFFF",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["health", "medical", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "img/hero.avif",
+      "sizes": "1200x800",
+      "type": "image/avif",
+      "form_factor": "wide",
+      "label": "Vista principal da clínica"
+    }
+  ],
+  "icons": [
+    {
+      "src": "img/logo.avif",
+      "sizes": "192x192",
+      "type": "image/avif",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo.avif",
+      "sizes": "512x512",
+      "type": "image/avif",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo.avif",
+      "sizes": "192x192",
+      "type": "image/avif",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Agendar Consulta",
+      "short_name": "Agendar",
+      "description": "Acesso rápido para agendamento",
+      "url": "/#contato",
+      "icons": [
+        {
+          "src": "img/logo.avif",
+          "sizes": "96x96",
+          "type": "image/avif"
+        }
+      ]
+    },
+    {
+      "name": "WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Falar conosco pelo WhatsApp",
+      "url": "https://wa.me/5547999999999?text=Olá! Gostaria de agendar uma consulta.",
+      "icons": [
+        {
+          "src": "img/logo.avif",
+          "sizes": "96x96",
+          "type": "image/avif"
+        }
+      ]
+    },
+    {
+      "name": "Localização",
+      "short_name": "Locais",
+      "description": "Ver nossos endereços",
+      "url": "/#unidades",
+      "icons": [
+        {
+          "src": "img/logo.avif",
+          "sizes": "96x96",
+          "type": "image/avif"
+        }
+      ]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+odonto",
+      "url": "/?action=%s"
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Principais páginas para indexação
+Allow: /index.html
+Allow: /style.css
+Allow: /script.js
+
+# Sitemap (caso futuramente seja criado)
+Sitemap: https://odontovillare.azurestaticapps.net/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga do servidor
+Crawl-delay: 1
+
+# Permitir todos os bots de pesquisa principais
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Diretórios específicos
+Allow: /img/
+
+# Arquivos que não devem ser indexados
+Disallow: /*.log$
+Disallow: /temp/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /node_modules/

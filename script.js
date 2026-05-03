@@ -1,14 +1,18 @@
-// Script para animações e interatividade da Odonto Villare
-
+// Script Profissional para Odonto Villare
 document.addEventListener('DOMContentLoaded', function() {
-  // Configurações
+  'use strict';
+
+  // Configurações avançadas
   const CONFIG = {
-    animationDelay: 200,
-    counterSpeed: 2000,
-    scrollOffset: 100
+    animationDelay: 150,
+    counterSpeed: 2500,
+    scrollOffset: 80,
+    parallaxSpeed: 0.5,
+    debounceDelay: 10,
+    intersectionThreshold: 0.1
   };
 
-  // Utilitários
+  // Utilitários otimizados
   const debounce = (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -21,82 +25,131 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   };
 
-  // Intersection Observer para animações de entrada
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return function(...args) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  };
+
+  // Intersection Observer para animações de entrada suaves
   const observerOptions = {
-    threshold: 0.1,
+    threshold: CONFIG.intersectionThreshold,
     rootMargin: `0px 0px -${CONFIG.scrollOffset}px 0px`
   };
 
   const animateOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
+        // Delay progressivo para efeito cascata
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+          
+          // Disparar contador se for seção números
+          if (entry.target.closest('.numeros')) {
+            animateCounters();
+          }
+          
+          // Animar cards de serviços individualmente
+          if (entry.target.classList.contains('servico-card')) {
+            entry.target.style.animationDelay = `${index * 100}ms`;
+          }
+          
+        }, index * CONFIG.animationDelay);
         
-        // Se for um elemento com contador, iniciar animação
-        if (entry.target.classList.contains('numeros-grid')) {
-          animateCounters();
-        }
+        // Remover observer após animação
+        animateOnScroll.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  // Selecionar elementos para animação
-  const elementsToAnimate = document.querySelectorAll('.fade-in, .fade-in-up');
+  // Selecionar e observar elementos para animação
+  const elementsToAnimate = document.querySelectorAll(`
+    .fade-in, 
+    .fade-in-up, 
+    .servico-card, 
+    .unidade-card, 
+    .stat-item,
+    .numero-item,
+    .depoimento-card,
+    .section-header
+  `);
+  
   elementsToAnimate.forEach(element => {
     animateOnScroll.observe(element);
   });
 
-  // Animação dos contadores na seção números
+  // Animação de contadores otimizada
+  let countersAnimated = false;
   function animateCounters() {
+    if (countersAnimated) return;
+    countersAnimated = true;
+    
     const counters = document.querySelectorAll('.counter');
     
     counters.forEach(counter => {
       const target = parseInt(counter.getAttribute('data-target'));
       const duration = CONFIG.counterSpeed;
-      const step = target / (duration / 16); // 60fps
-      let current = 0;
-
+      let start = 0;
+      const increment = target / (duration / 16); // 60fps
+      
       const updateCounter = () => {
-        current += step;
-        if (current < target) {
-          counter.textContent = Math.floor(current).toLocaleString('pt-BR');
+        start += increment;
+        
+        if (start < target) {
+          counter.textContent = Math.floor(start).toLocaleString('pt-BR');
           requestAnimationFrame(updateCounter);
         } else {
           counter.textContent = target.toLocaleString('pt-BR');
         }
       };
 
-      updateCounter();
+      // Delay individualizado para cada contador
+      const delay = Array.from(counters).indexOf(counter) * 200;
+      setTimeout(updateCounter, delay);
     });
   }
 
-  // Header scroll effect
+  // Header inteligente com múltiplos estados
   const header = document.querySelector('.header');
   let lastScrollY = window.scrollY;
+  let scrollDirection = 'up';
+  let isHeaderHidden = false;
 
-  const handleScroll = debounce(() => {
+  const handleHeaderScroll = throttle(() => {
     const currentScrollY = window.scrollY;
     
-    // Adicionar/remover classe para efeito de blur
-    if (currentScrollY > 50) {
+    // Determinar direção do scroll
+    scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+    
+    // Estados do header baseados na posição
+    if (currentScrollY > 100) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-
-    // Auto-hide header ao rolar para baixo
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    
+    // Auto-hide inteligente
+    if (scrollDirection === 'down' && currentScrollY > 200 && !isHeaderHidden) {
       header.style.transform = 'translateY(-100%)';
-    } else {
+      header.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      isHeaderHidden = true;
+    } else if (scrollDirection === 'up' && isHeaderHidden) {
       header.style.transform = 'translateY(0)';
+      header.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+      isHeaderHidden = false;
     }
     
     lastScrollY = currentScrollY;
-  }, 10);
+  }, CONFIG.debounceDelay);
 
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleHeaderScroll);
 
-  // Smooth scroll para links internos
+  // Smooth scroll aprimorado para links internos
   const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
   smoothScrollLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -109,36 +162,74 @@ document.addEventListener('DOMContentLoaded', function() {
         const headerHeight = header.offsetHeight;
         const targetPosition = targetElement.offsetTop - headerHeight - 20;
         
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+        // Animação de scroll suave com easing personalizado
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+        
+        const smoothScrollAnimation = (currentTime) => {
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const run = easeInOutCubic(timeElapsed, startPosition, distance, 1000);
+          window.scrollTo(0, run);
+          if (timeElapsed < 1000) requestAnimationFrame(smoothScrollAnimation);
+        };
+        
+        // Easing function para scroll mais natural
+        const easeInOutCubic = (t, b, c, d) => {
+          t /= d/2;
+          if (t < 1) return c/2*t*t*t + b;
+          t -= 2;
+          return c/2*(t*t*t + 2) + b;
+        };
+        
+        requestAnimationFrame(smoothScrollAnimation);
       }
     });
   });
 
-  // Efeito parallax para o hero
+  // Efeito parallax otimizado para hero
   const hero = document.querySelector('.hero');
   const heroImage = document.querySelector('.hero-image');
   
   if (hero && heroImage) {
-    const handleParallax = debounce(() => {
+    const handleParallax = throttle(() => {
       const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
+      const rate = scrolled * -CONFIG.parallaxSpeed;
       
       if (scrolled <= hero.offsetHeight) {
-        heroImage.style.transform = `translateY(${rate}px)`;
+        heroImage.style.transform = `translate3d(0, ${rate}px, 0)`;
       }
-    }, 10);
+    }, 16); // 60fps
 
     window.addEventListener('scroll', handleParallax);
   }
 
-  // Animação de hover para cards de serviços
+  // Hover effects avançados para cards de serviços
   const servicoCards = document.querySelectorAll('.servico-card');
   servicoCards.forEach(card => {
     card.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-15px) scale(1.02)';
+      this.style.transform = 'translateY(-12px) scale(1.02)';
+      this.style.transition = 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)';
+      
+      // Efeito shimmer no hover
+      const shimmer = document.createElement('div');
+      shimmer.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.6s ease;
+        pointer-events: none;
+      `;
+      this.appendChild(shimmer);
+      
+      setTimeout(() => {
+        shimmer.style.left = '100%';
+        setTimeout(() => shimmer.remove(), 600);
+      }, 50);
     });
     
     card.addEventListener('mouseleave', function() {
@@ -146,147 +237,266 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Lazy loading para imagens
+  // Lazy loading otimizado para imagens
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
-        img.src = img.dataset.src || img.src;
-        img.classList.remove('lazy');
+        
+        // Efeito de fade-in na imagem
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s ease';
+        
+        const loadImage = () => {
+          img.onload = () => {
+            img.style.opacity = '1';
+            img.classList.remove('lazy');
+          };
+          
+          img.src = img.dataset.src || img.src;
+        };
+        
+        // Pequeno delay para suavizar o loading
+        setTimeout(loadImage, 100);
         observer.unobserve(img);
       }
     });
-  });
+  }, { threshold: 0.1 });
 
-  const images = document.querySelectorAll('img[data-src], img.lazy');
-  images.forEach(img => imageObserver.observe(img));
+  const lazyImages = document.querySelectorAll('img[data-src], img.lazy');
+  lazyImages.forEach(img => imageObserver.observe(img));
 
-  // Preloader (se necessário)
-  const preloader = document.querySelector('.preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.style.opacity = '0';
-      setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 500);
+  // Botão WhatsApp com interações avançadas
+  const whatsappButton = document.querySelector('.whatsapp-float');
+  if (whatsappButton) {
+    // Efeito de respiração
+    let breatheAnimation = null;
+    
+    const startBreathing = () => {
+      let scale = 1;
+      let growing = true;
+      
+      breatheAnimation = setInterval(() => {
+        if (growing) {
+          scale += 0.002;
+          if (scale >= 1.1) growing = false;
+        } else {
+          scale -= 0.002;
+          if (scale <= 1) growing = true;
+        }
+        whatsappButton.style.transform = `scale(${scale})`;
+      }, 16);
+    };
+    
+    const stopBreathing = () => {
+      if (breatheAnimation) {
+        clearInterval(breatheAnimation);
+        whatsappButton.style.transform = 'scale(1)';
+      }
+    };
+    
+    // Iniciar animação de respiração
+    setTimeout(startBreathing, 2000);
+    
+    whatsappButton.addEventListener('mouseenter', () => {
+      stopBreathing();
+      whatsappButton.style.transform = 'scale(1.15)';
+      whatsappButton.style.transition = 'transform 0.3s ease';
+    });
+    
+    whatsappButton.addEventListener('mouseleave', () => {
+      whatsappButton.style.transform = 'scale(1)';
+      setTimeout(startBreathing, 1000);
     });
   }
 
-  // Google Analytics (se configurado)
-  function trackEvent(category, action, label = '') {
+  // Sistema de notificações toast (opcional)
+  const showToast = (message, type = 'info') => {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      padding: 16px 24px;
+      background: ${type === 'success' ? '#10B981' : '#3B82F6'};
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      z-index: 10000;
+      transform: translateX(400px);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      font-weight: 500;
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Animar entrada
+    setTimeout(() => {
+      toast.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Animar saída
+    setTimeout(() => {
+      toast.style.transform = 'translateX(400px)';
+      setTimeout(() => toast.remove(), 400);
+    }, 3000);
+  };
+
+  // Tracking melhorado de eventos
+  const trackEvent = (category, action, label = '') => {
+    // Google Analytics 4
     if (typeof gtag !== 'undefined') {
       gtag('event', action, {
         event_category: category,
-        event_label: label
+        event_label: label,
+        custom_parameter_1: window.location.pathname
       });
     }
-  }
+    
+    // Log interno para debug
+    console.log(`📊 Event: ${category} - ${action}${label ? ` - ${label}` : ''}`);
+  };
 
-  // Tracking de cliques nos botões do WhatsApp
+  // Tracking de cliques em botões WhatsApp
   const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
   whatsappButtons.forEach(button => {
     button.addEventListener('click', () => {
-      trackEvent('WhatsApp', 'click', button.textContent.trim());
+      const buttonText = button.textContent.trim();
+      trackEvent('WhatsApp', 'click', buttonText);
+      showToast('Redirecionando para WhatsApp...', 'success');
     });
   });
 
-  // Adicionar classes CSS dinâmicas
-  const style = document.createElement('style');
-  style.textContent = `
-    .animate-in.fade-in {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .animate-in.fade-in-up {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .header.scrolled {
-      backdrop-filter: blur(20px);
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-    
-    .lazy {
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    
-    .servico-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    /* Preloader styles */
-    .preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-    
-    .preloader-logo {
-      width: 60px;
-      height: 60px;
-      animation: pulse 1.5s ease-in-out infinite;
-    }
-    
-    /* Animações responsivas */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+  // Tracking de cliques em botões de serviço
+  const serviceCards = document.querySelectorAll('.servico-card');
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const serviceName = card.querySelector('h3')?.textContent || 'Serviço';
+      trackEvent('Services', 'card_click', serviceName);
+    });
+  });
+
+  // Performance optimization: Intersection Observer cleanup
+  const cleanupObservers = () => {
+    if (animateOnScroll) animateOnScroll.disconnect();
+    if (imageObserver) imageObserver.disconnect();
+  };
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', cleanupObservers);
+
+  // Add dynamic CSS classes for enhanced animations
+  const addDynamicStyles = () => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .animate-in {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1) !important;
       }
-    }
-    
-    /* Performance otimizations */
-    .hero-image {
-      will-change: transform;
-    }
-    
-    .servico-card:hover {
-      will-change: transform;
-    }
-  `;
-  document.head.appendChild(style);
+      
+      .fade-in:not(.animate-in),
+      .fade-in-up:not(.animate-in) {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      
+      .servico-card:not(.animate-in) {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      
+      .header {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      
+      /* Otimizações de performance */
+      .hero-image,
+      .servico-img,
+      .whatsapp-float {
+        will-change: transform;
+      }
+      
+      .servico-card:hover,
+      .unidade-card:hover,
+      .stat-item:hover {
+        will-change: transform, box-shadow;
+      }
+      
+      /* Suporte a prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+      
+      /* Toast animations */
+      .toast {
+        font-family: 'Inter', sans-serif;
+      }
+    `;
+    document.head.appendChild(style);
+  };
 
-  // Console log para debug
-  console.log('🦷 Odonto Villare - Site carregado com sucesso!');
-  console.log('📊 Elementos animados:', elementsToAnimate.length);
-  console.log('🔗 Links suaves:', smoothScrollLinks.length);
-  console.log('💬 Botões WhatsApp:', whatsappButtons.length);
+  addDynamicStyles();
 
-  // Error handling para imagens
-  images.forEach(img => {
-    img.addEventListener('error', function() {
-      console.warn('Erro ao carregar imagem:', this.src);
-      this.style.display = 'none';
+  // Loading optimization: Preload critical resources
+  const preloadCriticalResources = () => {
+    const criticalImages = [
+      'img/logo.avif',
+      'img/hero.avif'
+    ];
+    
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = src;
+      link.as = 'image';
+      document.head.appendChild(link);
     });
-  });
-});
+  };
 
-// Service Worker registration (opcional - para PWA)
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError);
-      });
+  preloadCriticalResources();
+
+  // Error handling para recursos
+  window.addEventListener('error', (e) => {
+    if (e.target.tagName === 'IMG') {
+      console.warn('🖼️ Erro ao carregar imagem:', e.target.src);
+      e.target.style.display = 'none';
+      // Opcional: substituir por imagem placeholder
+      // e.target.src = 'data:image/svg+xml;base64,...'; // placeholder svg
+    }
   });
-}
+
+  // Inicialização completa
+  console.log('🦷 Odonto Villare - Site carregado com todas as funcionalidades!');
+  console.log(`📊 Elementos observados: ${elementsToAnimate.length}`);
+  console.log(`🔗 Links suaves: ${smoothScrollLinks.length}`);
+  console.log(`💬 Botões WhatsApp: ${whatsappButtons.length}`);
+  console.log('🚀 Sistema de animações e interações ativo');
+
+  // Opcional: Service Worker para PWA
+  if ('serviceWorker' in navigator && 'production' === 'production') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('📱 Service Worker registrado:', registration.scope);
+        })
+        .catch(error => {
+          console.log('❌ Falha no Service Worker:', error);
+        });
+    });
+  }
+});
