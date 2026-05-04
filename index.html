@@ -8,32 +8,17 @@
 
   <meta
     name="description"
-    content="Odonto Villare - Clínica odontológica com mais de 26 anos de experiência. Ortodontia, implantes, estética dental, odontopediatria, próteses, canal, periodontia, clareamento e cirurgia oral."
+    content="Odonto Villare - Atendimento odontológico de qualidade ao seu alcance. Ortodontia, implantes, odontologia estética, endodontia, periodontia, prótese dentária, odontopediatria, clareamento e cirurgia oral."
   />
 
-  <meta
-    name="keywords"
-    content="Odonto Villare, clínica odontológica, dentista, ortodontia, implantes, odontologia estética, endodontia, periodontia, prótese dentária, odontopediatria, clareamento, cirurgia oral"
-  />
-
-  <meta name="author" content="Odonto Villare" />
-  <meta name="robots" content="index, follow" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Odonto Villare | Clínica Odontológica" />
-  <meta
-    property="og:description"
-    content="Atendimento odontológico de qualidade ao seu alcance. Mais de 26 anos cuidando de sorrisos."
-  />
-  <meta property="og:image" content="img/hero.avif" />
-  <meta property="og:locale" content="pt_BR" />
-
+  <meta name="theme-color" content="#5B1D5D" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/avif" href="img/logo.avif" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap"
     rel="stylesheet"
   />
 
@@ -43,7 +28,7 @@
 <body>
   <header class="header">
     <div class="container nav">
-      <a href="#inicio" class="brand" aria-label="Ir para o início">
+      <a href="#inicio" class="brand" aria-label="Odonto Villare">
         <img src="img/logo.avif" alt="Logo Odonto Villare" class="logo" />
       </a>
 
@@ -62,7 +47,7 @@
           href="https://wa.me/5511938066164"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-primary"
+          class="btn btn-primary btn-nav"
         >
           Agendar consulta
         </a>
@@ -72,17 +57,15 @@
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-bg"></div>
-
-      <div class="container hero-content reveal">
-        <div class="hero-text">
-          <span class="tag">Odontologia de qualidade ao seu alcance</span>
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <span class="hero-tag">Atendimento odontológico de qualidade</span>
 
           <h1>Seu sorriso é o nosso principal objetivo</h1>
 
           <p>
             Há mais de 26 anos cuidando de sorrisos com excelência,
-            acolhimento, tecnologia e equipe especializada.
+            acolhimento e tecnologia.
           </p>
 
           <div class="hero-actions">
@@ -95,13 +78,13 @@
               Falar no WhatsApp
             </a>
 
-            <a href="#especialidades" class="btn btn-secondary">
-              Ver especialidades
+            <a href="#especialidades" class="btn btn-outline">
+              Nossas especialidades
             </a>
           </div>
         </div>
 
-        <div class="hero-image-box">
+        <div class="hero-image-wrap reveal">
           <img
             src="img/hero.avif"
             alt="Paciente sorrindo em atendimento odontológico"
@@ -109,129 +92,108 @@
           />
         </div>
       </div>
+
+      <div class="hero-wave"></div>
     </section>
 
-    <section class="section about" id="sobre">
+    <section class="about" id="sobre">
       <div class="container about-grid">
         <div class="about-text reveal">
-          <span class="section-tag">Sobre a Odonto Villare</span>
-
-          <h2>Cuidando de sorrisos, transformando vidas</h2>
+          <h2>Sobre a Odonto Villare</h2>
+          <div class="title-line"></div>
 
           <p>
             A Odonto Villare cresceu com o bairro e hoje possui duas unidades
             na região. Nosso compromisso é oferecer odontologia de qualidade
-            com atendimento humanizado, estrutura moderna e uma equipe de
-            especialistas sempre pronta para cuidar de você e da sua família.
+            com atendimento humanizado, infraestrutura moderna e uma equipe
+            de especialistas sempre pronta para cuidar de você e da sua família.
           </p>
         </div>
 
-        <div class="about-features reveal">
+        <div class="about-icons reveal">
           <article>
             <span>✓</span>
-            <h3>Experiência e confiança</h3>
+            <p>Experiência e confiança</p>
           </article>
 
           <article>
-            <span>☺</span>
-            <h3>Equipe especializada</h3>
+            <span>👥</span>
+            <p>Equipe especializada</p>
           </article>
 
           <article>
-            <span>★</span>
-            <h3>Tecnologia e qualidade</h3>
+            <span>☆</span>
+            <p>Tecnologia e qualidade</p>
           </article>
 
           <article>
             <span>♡</span>
-            <h3>Atendimento humanizado</h3>
+            <p>Atendimento humanizado</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section specialties" id="especialidades">
+    <section class="specialties" id="especialidades">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-tag">Nossas especialidades</span>
-          <h2>Tratamentos odontológicos completos</h2>
-          <p>
-            Cuidado em todas as fases do tratamento, com especialidades para
-            crianças, adultos e famílias.
-          </p>
+        <div class="section-title reveal">
+          <h2>Nossas especialidades</h2>
+          <div class="title-line center"></div>
         </div>
 
         <div class="specialties-grid">
           <article class="specialty-card reveal">
             <img src="img/ortodontia.avif" alt="Ortodontia" />
-            <div>
-              <h3>Ortodontia</h3>
-              <p>Alinhamento dos dentes e correção da mordida para um sorriso mais harmônico.</p>
-            </div>
+            <h3>Ortodontia</h3>
+            <p>Alinhamento dos dentes e correção da mordida para um sorriso harmonioso.</p>
           </article>
 
           <article class="specialty-card reveal">
-            <img src="img/implante.avif" alt="Implantes dentários" />
-            <div>
-              <h3>Implantes</h3>
-              <p>Soluções modernas e seguras para reposição de dentes perdidos.</p>
-            </div>
+            <img src="img/implante.avif" alt="Implantes" />
+            <h3>Implantes</h3>
+            <p>Soluções modernas e seguras para reposição de dentes perdidos.</p>
           </article>
 
           <article class="specialty-card reveal">
-            <img src="img/odontologia_estetica.avif" alt="Odontologia estética" />
-            <div>
-              <h3>Odontologia Estética</h3>
-              <p>Procedimentos que realçam a beleza, a harmonia e a confiança do sorriso.</p>
-            </div>
+            <img src="img/odontologia_estetica.avif" alt="Odontologia Estética" />
+            <h3>Odontologia Estética</h3>
+            <p>Procedimentos que realçam a beleza do seu sorriso.</p>
           </article>
 
           <article class="specialty-card reveal">
             <img src="img/endodontia.avif" alt="Endodontia" />
-            <div>
-              <h3>Endodontia</h3>
-              <p>Tratamento de canal com tecnologia, cuidado e máximo conforto.</p>
-            </div>
+            <h3>Endodontia</h3>
+            <p>Tratamento de canal com tecnologia e máximo conforto.</p>
           </article>
 
           <article class="specialty-card reveal">
             <img src="img/periodontia.avif" alt="Periodontia" />
-            <div>
-              <h3>Periodontia</h3>
-              <p>Cuidado especializado com as gengivas e tecidos de suporte dos dentes.</p>
-            </div>
+            <h3>Periodontia</h3>
+            <p>Cuidado especializado com as gengivas e tecidos de suporte.</p>
           </article>
 
           <article class="specialty-card reveal">
-            <img src="img/protese.avif" alt="Prótese dentária" />
-            <div>
-              <h3>Prótese Dentária</h3>
-              <p>Recuperação da função mastigatória e estética com próteses fixas ou removíveis.</p>
-            </div>
+            <img src="img/protese.avif" alt="Prótese Dentária" />
+            <h3>Prótese Dentária</h3>
+            <p>Recupere função e estética com próteses fixas ou removíveis.</p>
           </article>
 
           <article class="specialty-card reveal">
             <img src="img/odontopediatria.avif" alt="Odontopediatria" />
-            <div>
-              <h3>Odontopediatria</h3>
-              <p>Atendimento infantil com carinho, paciência e segurança.</p>
-            </div>
+            <h3>Odontopediatria</h3>
+            <p>Atendimento infantil com carinho, paciência e segurança.</p>
           </article>
 
           <article class="specialty-card reveal">
-            <img src="img/clareamento.avif" alt="Clareamento dental" />
-            <div>
-              <h3>Clareamento</h3>
-              <p>Dentes mais brancos e um sorriso ainda mais bonito.</p>
-            </div>
+            <img src="img/clareamento.avif" alt="Clareamento" />
+            <h3>Clareamento</h3>
+            <p>Dentes mais brancos e um sorriso ainda mais bonito.</p>
           </article>
 
           <article class="specialty-card reveal">
-            <img src="img/cirurgia.avif" alt="Cirurgia oral" />
-            <div>
-              <h3>Cirurgia Oral</h3>
-              <p>Procedimentos cirúrgicos com segurança, planejamento e cuidado.</p>
-            </div>
+            <img src="img/cirurgia.avif" alt="Cirurgia Oral" />
+            <h3>Cirurgia Oral</h3>
+            <p>Procedimentos cirúrgicos com segurança e planejamento.</p>
           </article>
         </div>
       </div>
@@ -239,67 +201,52 @@
 
     <section class="numbers" id="numeros">
       <div class="container numbers-grid reveal">
-        <div>
+        <article>
           <strong>13.369</strong>
           <span>Pacientes atendidos</span>
-        </div>
+        </article>
 
-        <div>
+        <article>
           <strong>1.580</strong>
           <span>Consultas por mês</span>
-        </div>
+        </article>
 
-        <div>
+        <article>
           <strong>26</strong>
           <span>Anos de experiência</span>
-        </div>
+        </article>
 
-        <div>
+        <article>
           <strong>12</strong>
           <span>Especialistas</span>
-        </div>
+        </article>
 
-        <div>
+        <article>
           <strong>2</strong>
           <span>Unidades</span>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section class="section testimonial">
-      <div class="container testimonial-box reveal">
-        <span class="section-tag">Depoimento</span>
-
-        <blockquote>
-          “Eu e minha família somos pacientes há mais de 15 anos. Sempre fui muito bem atendida.”
-        </blockquote>
-
-        <strong>— Viviane Genari</strong>
-      </div>
-    </section>
-
-    <section class="section units" id="unidades">
+    <section class="units" id="unidades">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-tag">Nossas unidades</span>
-          <h2>Escolha a unidade mais próxima</h2>
-          <p>
-            Entre em contato pelo WhatsApp e fale com nossa equipe.
-          </p>
+        <div class="section-title left reveal">
+          <h2>Nossas unidades</h2>
+          <div class="title-line"></div>
         </div>
 
         <div class="units-grid">
           <article class="unit-card reveal">
             <h3>Unidade São Rafael</h3>
             <p>Av. Baronesa de Muritiba, 468</p>
-            <p>Telefone: (11) 3793-5088</p>
-            <p>WhatsApp: (11) 93806-6164</p>
+            <p>(11) 3793-5088</p>
+            <p>(11) 93806-6164</p>
 
             <a
               href="https://wa.me/5511938066164"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-primary"
+              class="btn btn-primary unit-btn"
             >
               Falar no WhatsApp
             </a>
@@ -308,14 +255,14 @@
           <article class="unit-card reveal">
             <h3>Unidade Rodolfo Pirani</h3>
             <p>Av. Rodolfo Pirani, 740</p>
-            <p>Telefone: (11) 2751-2261</p>
-            <p>WhatsApp: (11) 99406-3390</p>
+            <p>(11) 2751-2261</p>
+            <p>(11) 99406-3390</p>
 
             <a
               href="https://wa.me/5511994063390"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-primary"
+              class="btn btn-primary unit-btn"
             >
               Falar no WhatsApp
             </a>
@@ -327,11 +274,8 @@
             <p>Sábados: 8h às 13h</p>
             <p>Domingo: fechado</p>
 
-            <div class="email-box">
-              <strong>E-mail</strong>
-              <a href="mailto:Odontovillare1@outlook.com">
-                Odontovillare1@outlook.com
-              </a>
+            <div class="email">
+              <strong>Odontovillare1@outlook.com</strong>
             </div>
           </article>
         </div>
@@ -356,15 +300,16 @@
       </div>
 
       <div>
-        <h3>Contato</h3>
-        <p>Odontovillare1@outlook.com</p>
-        <p>(11) 93806-6164</p>
-        <p>(11) 99406-3390</p>
+        <h3>Siga-nos</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="Facebook">f</a>
+        </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Odonto Villare - Todos os direitos reservados.</p>
+      © 2026 Odonto Villare - Todos os direitos reservados.
     </div>
   </footer>
 
@@ -373,9 +318,9 @@
     class="whatsapp-float"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Fale conosco no WhatsApp"
+    aria-label="Fale conosco pelo WhatsApp"
   >
-    <span>☏</span>
+    ☎
   </a>
 
   <script src="script.js"></script>

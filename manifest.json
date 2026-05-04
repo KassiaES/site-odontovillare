@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "theme_color": "#0EA5E9",
+  "theme_color": "#5B1D5D",
   "background_color": "#FFFFFF",
   "scope": "/",
   "lang": "pt-BR",
@@ -58,7 +58,7 @@
       "name": "WhatsApp",
       "short_name": "WhatsApp",
       "description": "Falar conosco pelo WhatsApp",
-      "url": "https://wa.me/5547999999999?text=Olá! Gostaria de agendar uma consulta.",
+      "url": "https://wa.me/5511938066164?text=Olá! Gostaria de agendar uma consulta.",
       "icons": [
         {
           "src": "img/logo.avif",
