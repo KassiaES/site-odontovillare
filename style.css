@@ -322,8 +322,8 @@ img {
 }
 
 .specialty-card img {
-  height: clamp(72px, 8vw, 92px);
-  width: clamp(72px, 8vw, 92px);
+  height: clamp(84px, 9vw, 112px);
+  width: clamp(84px, 9vw, 112px);
   margin: 0 auto 16px;
   object-fit: contain;
 }
